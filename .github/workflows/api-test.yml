@@ -11,7 +11,6 @@ on:
 jobs:
   api-tests:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,7 +26,7 @@ jobs:
       - name: Run Postman Collection
         env:
           GOREST_TOKEN: ${{ secrets.GOREST_TOKEN }}
- run: |
+        run: |
           newman run 274802010410_LeThanhTrung_GoRest.postman_collection.json \
             -e environment.json \
             --env-var "token=$GOREST_TOKEN"
